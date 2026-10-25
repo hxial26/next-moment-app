@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fffdf9">
+  <meta name="description" content="Prototipo conceptual NextMoment: revisa, organiza y convierte tus fotografías en recuerdos impresos.">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>NextMoment · Prototipo interactivo</title>
+</head>
+<body>
+  <main class="device" id="app" aria-label="Prototipo interactivo NextMoment">
+    <section class="welcome-view view active" id="welcome" aria-label="Bienvenida">
+      <div class="welcome-status"><span>9:41</span><span>● ● ◖ ▰</span></div>
+      <div class="welcome-center">
+        <img class="welcome-logo" src="../logo.png" alt="Símbolo NextMoments">
+        <img class="welcome-wordmark" src="../nombremarca.png" alt="NextMoments">
+        <p class="tagline">Tus momentos más allá de la pantalla</p>
+        <p class="welcome-copy">Organiza tu galería<br>y recupera tu espacio.</p>
+      </div>
+      <div class="welcome-actions">
+        <button class="button button-dark" data-action="login">Iniciar sesión</button>
+        <button class="button button-outline" data-action="register">Registrarse</button>
+        <p class="welcome-note">Prototipo conceptual · fotografías y resultados de muestra.</p>
+      </div>
+      <span class="home-indicator" aria-hidden="true"></span>
+    </section>
+
+    <section class="app-view view" id="workspace" aria-label="Tu aplicación">
+      <header class="app-header">
+        <div class="status-row"><span>9:41</span><span>● ● ◖ ▰</span></div>
+        <div class="screen-heading">
+          <button class="icon-button header-side" data-action="back" aria-label="Volver" hidden></button>
+          <h1 id="screen-title">Siguiente foto</h1>
+          <button class="icon-button header-side" id="header-action" data-action="header-action" aria-label="Acciones"></button>
+        </div>
+      </header>
+
+      <div class="screen-stack">
+        <section class="screen active" id="swipe-screen" aria-label="Limpieza de fotografías">
+          <div class="progress-meta"><span id="progress-label">0 / 12 en esta sesión</span><span class="progress-caption">FOTOS DE MUESTRA</span></div>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+          <div class="swipe-stage" id="swipe-stage" aria-label="Fotografía para revisar">
+            <div class="side-photo side-photo-left"><img id="side-left" alt="Siguiente recuerdo"></div>
+            <div class="side-photo side-photo-right"><img id="side-right" alt="Siguiente recuerdo"></div>
+            <article class="review-card" id="review-card">
+              <img id="current-photo" src="" alt="Fotografía pendiente de revisión">
+              <div class="photo-vignette"></div>
+              <div class="photo-topline"><span class="photo-counter" id="photo-counter">FOTO 48</span><button class="photo-more" data-action="photo-info" aria-label="Detalles de la foto">···</button></div>
+              <div class="photo-place"><span class="place-pin">⌖</span><div><b id="photo-title">Atardecer en la montaña</b><small id="photo-date">Dolomitas · 18 ago 2025</small></div></div>
+            </article>
+          </div>
+          <div class="review-actions" aria-label="Acciones de fotografía">
+            <button class="round-action action-delete" data-action="discard" aria-label="Descartar fotografía"><span>×</span></button>
+            <button class="round-action action-add" data-action="add-photo" aria-label="Añadir fotografías"><span>+</span></button>
+            <button class="round-action action-keep" data-action="keep" aria-label="Conservar fotografía"><span>✓</span></button>
+          </div>
+          <p class="review-hint">Desliza para revisar · simulación; tus originales no se borran</p>
+        </section>
+
+        <section class="screen" id="albums-screen" aria-label="Mis álbumes">
+          <div class="filter-strip" id="album-filters" role="tablist" aria-label="Filtrar álbumes"></div>
+          <div class="album-grid" id="album-grid"></div>
+          <button class="floating-add" data-action="add-album" aria-label="Crear álbum">+</button>
+        </section>
+
+        <section class="screen shared-album-screen" id="shared-album-screen" aria-label="Álbum compartido">
+          <div class="shared-cover"><img id="shared-cover-image" src="" alt="Portada del álbum compartido"><span class="shared-cover-label">✦ ÁLBUM COMPARTIDO</span></div>
+          <div class="shared-album-heading"><div><p class="overline">RECUERDOS EN COMÚN</p><h2 id="shared-album-title">Verano 2026</h2><p id="shared-album-stats">0 fotos · 0 participantes</p></div><span class="collab-badge">↗ Colaborativo</span></div>
+          <section class="shared-people"><div class="shared-section-heading"><h3>Participan</h3><button data-action="invite-friends">Invitar <span>＋</span></button></div><div class="participant-list" id="participant-list"></div></section>
+          <div class="shared-actions"><button data-action="add-shared-photos"><span>＋</span><b>Añadir fotos</b></button><button data-action="invite-friends"><span>↗</span><b>Invitar</b></button><button data-action="copy-album-link"><span>⌁</span><b>Copiar enlace</b></button></div>
+          <section class="referral-card">
+            <div class="referral-heading"><span class="referral-glyph">✳</span><div><b>Invita y gana puntos</b><small>100 puntos cuando un amigo nuevo complete el registro</small></div></div>
+            <p class="referral-rule">Compartir el enlace no suma puntos. Solo cuentan los nuevos registros simulados.</p>
+            <div class="referral-stats"><div><b id="referral-points">0</b><small>PUNTOS</small></div><div><b id="referral-count">0</b><small>AMIGOS REFERIDOS</small></div></div>
+            <div class="referral-code-row"><div><small>TU CÓDIGO</small><b id="referral-code">NM-VERANO26</b></div><button data-action="copy-referral-link">Copiar enlace <span>↗</span></button></div>
+            <button class="button button-dark referral-simulate" data-action="simulate-referral">Simular registro de un amigo nuevo</button>
+            <div class="referral-history"><h4>Historial de puntos</h4><div id="referral-history-list"></div></div>
+          </section>
+          <section class="shared-photos-section"><div class="shared-section-heading"><h3>Fotos del álbum</h3><span id="shared-photo-count"></span></div><div class="shared-photo-grid" id="shared-photo-grid"></div></section>
+        </section>
+
+        <section class="screen" id="store-screen" aria-label="Tienda de recuerdos">
+          <div class="points-card">
+            <div class="points-banner"><span class="gift-icon">✿</span><div><b>Programa de puntos propuesto</b><small>5 puntos por cada euro</small></div><span class="points-spark">✦</span></div>
+            <div class="points-balance"><span>Saldo de demo: <b id="points-balance">0 PTS</b></span><button data-action="rewards">Ver propuesta <span>→</span></button></div>
+          </div>
+          <article class="store-spotlight">
+            <img src="assets/images/instant-prints.jpg" alt="Copias fotográficas de momentos de viaje y familia">
+            <div class="spotlight-shade"></div>
+            <div class="spotlight-copy"><span>DE TUS FOTOS A TUS MANOS</span><h2>Momentos que<br>se quedan.</h2><button data-action="browse-products">Descubrir productos <b>↘</b></button></div>
+          </article>
+          <div class="store-section-title"><div><small>HECHOS CON TUS RECUERDOS</small><h2>Elige cómo imprimir</h2><p>Pequeñas historias para tener cerca.</p></div><span class="store-count" id="cart-count">0</span></div>
+          <div class="store-grid" id="store-grid"></div>
+          <p class="store-disclaimer">Catálogo conceptual · precios por definir · no se procesan compras</p>
+        </section>
+
+        <section class="screen" id="profile-screen" aria-label="Mi perfil">
+          <div class="profile-summary"><div class="profile-avatar">NM</div><div class="profile-identity"><h2>Perfil de demostración</h2><p>Datos locales de ejemplo</p></div><button class="settings-button" data-action="settings" aria-label="Configuración">⚙</button></div>
+          <div class="stat-pills"><div><span>Fotos conservadas</span><b id="saved-count">0</b></div><div><span>Espacio calculado</span><b id="space-count">No disponible</b></div></div>
+          <div class="profile-section-head"><h2>Mis Favoritos</h2><button data-action="show-favorites">Ver todos <span>→</span></button></div>
+          <div class="favorite-grid" id="favorite-grid"></div>
+          <button class="profile-upload" data-action="add-photo"><span>＋</span><span><b>Añadir fotos a tu galería</b><small>Elige imágenes de este dispositivo</small></span><i>›</i></button>
+          <div class="profile-footer"><span>NextMoment</span><small>Prototipo conceptual para TecnoChallenge</small></div>
+        </section>
+
+        <section class="screen results-screen" id="results-screen" aria-label="Resumen de limpieza">
+          <div class="results-heading"><span class="success-mark">✓</span><p>Resumen de esta demo</p><h2><span id="discarded-total">0</span></h2><strong>fotos marcadas para revisar</strong><span class="result-chip"><b id="kept-total">0</b> conservadas en esta sesión</span></div>
+          <div class="result-group"><div class="result-title"><h3>Marcadas para revisar</h3><button data-action="show-discarded">Ver más</button></div><div class="result-thumbnails" id="discarded-thumbs"></div></div>
+          <div class="result-group"><div class="result-title"><h3>Guardadas recientemente</h3><button data-action="show-favorites">Ver más</button></div><div class="result-thumbnails" id="kept-thumbs"></div></div>
+          <button class="button button-accent result-finish" data-action="finish-review">Finalizar</button>
+          <p class="estimate-note">No se borra ningún archivo ni se calcula espacio real. En la propuesta, la eliminación requeriría confirmación y papelera temporal.</p>
+        </section>
+      </div>
+
+      <nav class="bottom-nav" aria-label="Navegación principal">
+        <button class="nav-item active" data-screen="swipe-screen"><span class="nav-icon">▧</span><small>Swipe</small></button>
+        <button class="nav-item" data-screen="albums-screen"><span class="nav-icon">▱</span><small>Álbumes</small></button>
+        <button class="nav-item" data-screen="store-screen"><span class="nav-icon">♧</span><small>Tienda</small></button>
+        <button class="nav-item" data-screen="profile-screen"><span class="nav-icon">◎</span><small>Perfil</small></button>
+      </nav>
+      <span class="home-indicator app-indicator" aria-hidden="true"></span>
+    </section>
+
+    <input type="file" id="photo-picker" accept="image/*" multiple hidden>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="modal" hidden><section class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" data-action="close-modal" aria-label="Cerrar">×</button><div id="modal-content"></div></section></div>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
